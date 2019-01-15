@@ -69,7 +69,7 @@ With each step, don't go too crazy, **just sample the feature**. Some are more u
 
 **A file structure might be:**
 
-```bash=
+```css=
 css/
     - style.css (this file is empty to start with)
 scss/
@@ -110,7 +110,7 @@ With your css split up into logical partials, it's time to get sassy. First thin
 
 **1. <span id="comments">Comments:</span>**
 To write comments in scss, you can also use double forward slashes, as you do in JavaScript. If it don't work, tell others what you are trying to achieve. If it does, still tell them!
-```javascript=
+```css=
 \\ this is a one line comment
 
 \*
@@ -139,7 +139,7 @@ ul li a {
 }
 ```
 **after:**
-```scss=
+```css=
 ul {
     list-style: none;
     li {
@@ -192,7 +192,7 @@ The Ampersand can be used to chain css selectors together, such as:
 ```
 
 **Would become this** (with a bit of nesting):
-```scss=
+```css=
 .profile {
     background-color: white;
     &-details {
@@ -223,7 +223,7 @@ The Ampersand can be used to chain css selectors together, such as:
 
 **b) <span id="ampersand-parent">In referencing the parent element</span>**
 You can use the ampersand **after** the selector to style an element based on it's context. **For example this**:
-```scss=
+```css=
 .heading {
     .enter-details & {
         color: skyblue;
@@ -247,11 +247,11 @@ You can use the ampersand **after** the selector to style an element based on it
 Sass variables can make it easier to keep track of repeated css values, such as colours, fonts, gradients, icons, and shadows. A common way to organise variables is to group them together in a _partial file, then import the variables partial at the top of your file.
 
 **You can declare and use sass variables like so:**
-```scss
+```css
 $light-black: #363636;
 $font-main: 'Mukta', sans-serif;
 ```
-```scss
+```css
 h1 {
     color: $light-black;
     font-family: $font-main;
@@ -265,7 +265,7 @@ h1 {
 
 **2. <span id="extends">Extends and Placeholders:</span>**
 An **extend** extends the styles (css property: value pairs) of an element like so:
-```scss=
+```css=
 .heading {
     font-size: 3rem;
     color: black;
@@ -291,7 +291,7 @@ h2 {
 }
 ```
 A **placeholder** will work in exactly the same way, but not output the original css. A placeholder is generated with a **% sign** like so:
-```scss=
+```css=
 %heading {
     font-size: 3rem;
     color: black;
@@ -321,7 +321,7 @@ Now we are talking. This is where sass begins to get sassy. Oh yeah. Imagine you
 There are endless blog posts moaning about extends and placeholders (which do have their place), but mixins tend to have the edge most of the time.
 
 **SCSS Mixin Example:**
-```scss=
+```css=
 @mixin header($sm-size, $lg-size, $line){
     font-size: $sm-size;
     font-weight: $bold;
@@ -365,7 +365,7 @@ Interpo-whatnow???
 Making selectors from things you enter into mixins and whatnot. Similar to the template literal / backtick syntax in vanilla JavaScript.
 
 **For example, in a button mixin:**
-```scss=
+```css=
 // variables from another partial
 $green: #1f7736;
 $green-hover: #0ed642;
