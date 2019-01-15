@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Basis Sass</title>
+  <meta name="description" content="refactor css to learn basic sass">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <header class="header-section">
+    <h1>Basis Sass / Scss</h1>
+    <p>Learn basic sass by refactoring css</p>
+  </header>
+
+  <main>
+
+    <section class="main-section enter-details">
+        <h1 class="heading">My Details</h1>
+        <form class="form" action="/">
+        
+            <label for="name">Name</label>
+            <input id="name" class="text-input" type="text" pattern="[a-zA-Z]{3,40}" required/>
+        
+            <label for="email">Email</label>
+            <input id="email" class="text-input" type="email" pattern="[a-zA-Z]{3,40}" required/>
+        
+            <label for="about">About Me</label>
+            <textarea id="about" class="text-input" name="about" pattern="[a-zA-Z0-9'\s.]{3,40}"></textarea>
+        
+            <label for="languages">Languages</label>
+            <p>> Languages that I have failed to learn</p>
+            <div class="row checkbox-row">
+                <label class="checkbox-label">English
+                    <input class="checkbox-input english" type="checkbox" name="english" value="">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-label">Spanish
+                    <input class="checkbox-input spanish" type="checkbox" name="spanish" value="">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-label">French
+                    <input class="checkbox-input french" type="checkbox" name="french" value="">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-label">German
+                    <input class="checkbox-input german" type="checkbox" name="german" value="">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        
+            <input type="submit" class="button-submit" value="Add Profile" />
+        </form>
+
+    </section>
+
+
+    <section class="main-section profile-section">
+        <h2 class="heading">About Me</h2>
+        <ul class="profile-details">
+            <li class="profile-item name">
+                <h3>Name:</h3>
+                <p>Martin</p>
+            </li>
+            <li class="profile-item about">
+                <h3>About:</h3>
+                <p>I like sass</p>
+            </li>
+            <li class="profile-item languages">
+                <h3>Languages I sometimes try to learn:</h3>
+                <ul class="profile-languages">
+                    <li class="language english">English</li>
+                    <li class="language spanish">Spanish</li>
+                    <li class="language french">French</li>
+                    <li class="language german">German</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

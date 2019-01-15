@@ -1,0 +1,294 @@
+/* basic reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+  
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+  
+body {
+    line-height: 1;
+}
+  
+ol, ul {
+    list-style: none;
+}
+
+
+
+
+
+
+/* typography */
+body {
+    color: #363636;
+    font-size: 16px/1em;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    background-color: #ebf9ff;
+}
+
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h2 {
+    font-size : 2.35rem;
+    font-weight : 700;
+    line-height : 1.5;
+    margin: 0;
+}
+
+h3 {
+    font-size : 1.85rem;
+    font-weight : 700;
+    line-height : 1.4;
+    margin: 0;
+}
+
+p {
+    font-size : 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: skyblue;
+}
+
+
+
+
+
+
+/* containers and layout */
+.header-section,
+.main-section {
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align : center;
+    padding: 1rem 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+/* header */
+.header-section {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+    border-bottom: 4px solid skyblue;
+}
+.header-section h1 {
+    text-shadow: 0.05rem 0.075rem 0.075rem rgba(0, 0, 0, 0.25);
+}
+
+/* lists */
+ul {
+    list-style: none;
+}
+ul li {
+    line-height: 2;
+}
+.profile-details {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    background-color:skyblue;
+}
+.profile-item {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid;
+}
+.profile-item:nth-child(1) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.profile-languages {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.language {
+    padding : 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: white;
+}
+.language.english {
+    background-color: #e34c26;
+}
+.language.spanish {
+    background-color: #f1e05a;
+    color: #363636;
+}
+.language.french {
+    background-color: #40b1dc;
+}
+.language.german {
+    background-color: #43853d;
+}
+
+
+
+
+
+
+
+
+/* forms */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form label {
+    font-size: 1.75rem;
+}
+.form label:not(.checkbox-label) {
+    border-bottom: 3px solid;
+    margin-bottom: 0.5rem;
+}
+/* text input */
+.text-input {
+    font-family: 'Mukta', sans-serif;
+    font-size: 1.5rem;
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.75rem 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 4px solid skyblue;
+}
+.text-input:focus,
+.text-input:active {
+    border: 4px solid #40b1dc;
+}
+/* input type submit */
+.button-submit {
+    align-self: flex-end;
+    font-family: 'Mukta', sans-serif;
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    color: #363636;
+    background-color: orange;
+}
+.button-submit:hover,
+.button-submit:focus {
+    background-color: orangered;
+}
+/* checkboxes */
+.checkbox-row {
+    margin: 1rem 0;
+}
+/* taken from here: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+.checkbox-label {
+    display: block;
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkbox-input:checked ~ .checkmark {
+    background-color: grey;
+}
+.checkbox-input:checked ~ .checkmark:after {
+    display: block;
+}
+.checkbox:hover .radio-input ~ .checkmark {
+    background-color: gainsboro;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #eee;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    content: "";
+    top: 0.2rem;
+    left: 0.6rem;
+    width: 0.5rem;
+    height: 1rem;
+    border: solid white;
+    border-width: 0 0.25rem 0.25rem 0;
+    transform: rotate(45deg);
+}
+  
+.checkbox-input.english:checked ~ .checkmark {
+    background-color: #e34c26;
+}
+.checkbox-input.spanish:checked ~ .checkmark {
+    background-color: #f1e05a;
+}
+.checkbox-input.french:checked ~ .checkmark {
+    background-color: #40b1dc;
+}
+.checkbox-input.german:checked ~ .checkmark {
+    background-color: #43853d;
+}
