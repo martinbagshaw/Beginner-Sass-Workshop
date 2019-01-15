@@ -2,7 +2,7 @@
 
 > This workshop (and everyone else, ever) actually uses **SCSS**, referred to on the website as 'Sassy CSS'. Sass was the original syntax, **SCSS** is the new version. 
 > 
-> The terms 'Sass' and 'SCSS' will be used interchangably throughout this tutorial to refer to 'SCSS'. [More on this Stackoverflow post](https://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass)
+> The terms 'Sass' and 'SCSS' will be used interchangeably throughout this tutorial to refer to 'SCSS'. [More on this Stackoverflow post](https://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass)
 
 ![sass logo](http://davidleger95.github.io/whitespace/assets/img/post/sass-math.svg)
 
@@ -69,7 +69,7 @@ With each step, don't go too crazy, **just sample the feature**. Some are more u
 
 **A file structure might be:**
 
-```css=
+```vim
 css/
     - style.css (this file is empty to start with)
 scss/
@@ -84,7 +84,7 @@ scss/
 
 **An import file might contain:**
     
-```css=
+```scss
 @import "./reset.scss";
 @import "./variables.scss";
 @import "./base.scss";
@@ -94,7 +94,7 @@ scss/
 
 **5. <span id="watch">Watch Command:</span>**
 Go to your terminal, and run the `sass --watch` command, to compile your partial files into one **style.css** file:
-```css=
+```ruby
 sass --watch scss/style.scss css/style.css
 ```
 You will see the terminal respond to changes as you edit your scss, with <span style="color:green">green text</span> if css is compiling ok, and <span style="color:red">red text</span> if it is erroring. To stop compiling, press `ctrl + c`.
@@ -110,7 +110,7 @@ With your css split up into logical partials, it's time to get sassy. First thin
 
 **1. <span id="comments">Comments:</span>**
 To write comments in scss, you can also use double forward slashes, as you do in JavaScript. If it don't work, tell others what you are trying to achieve. If it does, still tell them!
-```css=
+```scss
 \\ this is a one line comment
 
 \*
@@ -124,7 +124,7 @@ comment.
 **2. <span id="nesting">Nesting:</span>**
 In scss, you can nest child elements within parent elements. For example:
 **before:**
-```css=
+```css
 ul {
     list-style: none;
 }
@@ -139,7 +139,7 @@ ul li a {
 }
 ```
 **after:**
-```css=
+```scss
 ul {
     list-style: none;
     li {
@@ -165,7 +165,7 @@ The Ampersand can be used to chain css selectors together, such as:
 - classes that begin the same
 
 **For example this:**
-```css=
+```css
 .profile {
     background-color: white;
 }
@@ -192,7 +192,7 @@ The Ampersand can be used to chain css selectors together, such as:
 ```
 
 **Would become this** (with a bit of nesting):
-```css=
+```scss
 .profile {
     background-color: white;
     &-details {
@@ -223,7 +223,7 @@ The Ampersand can be used to chain css selectors together, such as:
 
 **b) <span id="ampersand-parent">In referencing the parent element</span>**
 You can use the ampersand **after** the selector to style an element based on it's context. **For example this**:
-```css=
+```scss
 .heading {
     .enter-details & {
         color: skyblue;
@@ -247,11 +247,11 @@ You can use the ampersand **after** the selector to style an element based on it
 Sass variables can make it easier to keep track of repeated css values, such as colours, fonts, gradients, icons, and shadows. A common way to organise variables is to group them together in a _partial file, then import the variables partial at the top of your file.
 
 **You can declare and use sass variables like so:**
-```css
+```scss
 $light-black: #363636;
 $font-main: 'Mukta', sans-serif;
 ```
-```css
+```scss
 h1 {
     color: $light-black;
     font-family: $font-main;
@@ -265,7 +265,7 @@ h1 {
 
 **2. <span id="extends">Extends and Placeholders:</span>**
 An **extend** extends the styles (css property: value pairs) of an element like so:
-```css=
+```scss
 .heading {
     font-size: 3rem;
     color: black;
@@ -277,7 +277,7 @@ h2 {
 }
 ```
 ...will compile to:
-```css=
+```css
 .heading {
     font-size: 3rem;
     color: black;
@@ -291,7 +291,7 @@ h2 {
 }
 ```
 A **placeholder** will work in exactly the same way, but not output the original css. A placeholder is generated with a **% sign** like so:
-```css=
+```scss
 %heading {
     font-size: 3rem;
     color: black;
@@ -302,7 +302,7 @@ h2 {
 }
 ```
 ...will compile to:
-```css=
+```css
 h2 {
     font-size: 3rem;
     color: black;
@@ -321,7 +321,7 @@ Now we are talking. This is where sass begins to get sassy. Oh yeah. Imagine you
 There are endless blog posts moaning about extends and placeholders (which do have their place), but mixins tend to have the edge most of the time.
 
 **SCSS Mixin Example:**
-```css=
+```scss
 @mixin header($sm-size, $lg-size, $line){
     font-size: $sm-size;
     font-weight: $bold;
@@ -365,7 +365,7 @@ Interpo-whatnow???
 Making selectors from things you enter into mixins and whatnot. Similar to the template literal / backtick syntax in vanilla JavaScript.
 
 **For example, in a button mixin:**
-```css=
+```scss
 // variables from another partial
 $green: #1f7736;
 $green-hover: #0ed642;
@@ -398,7 +398,7 @@ $yellow-hover: #b98b00;
 ```
 
 **And the resulting css:**
-```css=
+```css
 .button-submit.login {
     background-color: #1f7736;
 }
@@ -416,6 +416,47 @@ $yellow-hover: #b98b00;
 ... you get the idea
 ```
 
+**2. <span id="loops">For loops:</span>**
+So you like mixins, but think they are a bit OTT for the task at hand. Say you have a dashboard and have a load of labels, each with different background colours. With the mixin, you would end up doing an **@include** for each version of the label. Not very DRY. :umbrella: 
+
+**Enter the for loop:**
+
+```scss
+// variables from another partial
+$red: #e34c26;
+$yellow: #f1e05a;
+$blue: #40b1dc;
+$green: #1f7736;
+
+$languages : 'english', 'spanish', 'french', 'german';   
+$colour_codes : $red, $yellow, $blue, $green;
+@for $i from 1 through length($languages) {
+    .label.#{nth($languages, $i)} {
+        background-color : nth($colour_codes, $i);
+        color: white;
+        padding: 0.2rem;
+    }
+}
+```
+> Note: the above uses an array-like thing called a [Sass list](https://hugogiraudel.com/2013/07/15/understanding-sass-lists/)
+
+**This will output the following css:**
+
+```css
+.label.english {
+    background-color: #e34c26;
+    color: white;
+    padding: 0.2rem;
+}
+.label.spanish {
+    background-color: #f1e05a;
+    color: white;
+    padding: 0.2rem;
+}
+...etc
+```
+
+
 ---
 
 # Well done! :trophy: 
@@ -427,6 +468,7 @@ $yellow-hover: #b98b00;
 ## More Resources
 
 - [Sass Cheatsheet](https://devhints.io/sass)
+- [--watch Yo Sass](http://sassbreak.com/watch-your-sass/).... [Reminds me of this](https://www.youtube.com/watch?v=M7B5KwXHFtw)
 - [Beware of Nesting](https://www.sitepoint.com/beware-selector-nesting-sass/)
 - [The Ampersand](https://css-tricks.com/the-sass-ampersand/)
 - [Colour and sass functions](https://robots.thoughtbot.com/controlling-color-with-sass-color-functions)
