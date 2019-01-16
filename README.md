@@ -95,7 +95,7 @@ scss/
 **5. <span id="watch">Watch Command:</span>**
 Go to your terminal, and run the `sass --watch` command, to compile your partial files into one **style.css** file:
 ```ruby
-sass --watch scss/style.scss css/style.css
+sass --watch scss/style.scss:css/style.css
 ```
 You will see the terminal respond to changes as you edit your scss, with <span style="color:green">green text</span> if css is compiling ok, and <span style="color:red">red text</span> if it is erroring. To stop compiling, press `ctrl + c`.
 
