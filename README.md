@@ -31,7 +31,7 @@ For this workshop, we will be taking a plain css file, and **refactoring it to b
 With each step, don't go too crazy, **just sample the feature**. Some are more useful than others.
 
 ```diff
-Tasks can be found highlighted in green text
++ Tasks can be found highlighted in green text
 ```
 
 **Before we proceed you should bear in mind the following points:**
@@ -131,7 +131,7 @@ comment.
 ```
 
 ```diff
-**Your Task:** Write some comments
++ Your Task: Write some comments
 ```
 
 **2. <span id="nesting">Nesting:</span>**
@@ -171,7 +171,7 @@ ul {
 ```
 
 ```diff
-**Your Task**: Nest some Sass
++ Your Task: Nest some Sass
 ```
 
 **3. <span id="ampersand">Using the Ampersand: (&)</span>**
@@ -241,7 +241,7 @@ The Ampersand can be used to chain css selectors together, such as:
 ```
 
 ```diff
-**Your Task**: Use the ampersand to chain selectors together
++Your Task: Use the ampersand to chain selectors together
 ```
 
 **b) <span id="ampersand-parent">In referencing the parent element</span>**
@@ -289,7 +289,7 @@ h1 {
 ```
 
 ```diff
-**Your Task**: Make a new partial with some useful variables, and apply them to the rest of your scss partials
++ Your Task: Make a new partial with some useful variables, and apply them to the rest of your scss partials
 ```
 
 > More useful things you can do with colour variables [can be found here](https://robots.thoughtbot.com/controlling-color-with-sass-color-functions#adding-alpha-transparency)
@@ -347,7 +347,7 @@ h2 {
 ```
 
 ```diff
-**Your Task**: Try out `@extend` combined with placeholders
++Your Task: Try out `@extend` combined with placeholders
 ```
 
 **3. <span id="mixins">Mixins</span>**
@@ -398,7 +398,7 @@ h1 {
 ```
 
 ```diff
-**Your Task**: Write an `@mixin`, and include it in mulitple places with `@include`
++Your Task: Write an `@mixin`, and include it in mulitple places with `@include`
 ```
 
 ![bertea](https://media1.giphy.com/media/LJRf8PxI30qWs/giphy.gif?cid=3640f6095c3d385876635975328bd7ec)
