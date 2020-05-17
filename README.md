@@ -3,20 +3,22 @@
 > This workshop (and everyone else, ever) actually uses **SCSS**, referred to on the website as 'Sassy CSS'. Sass was the original syntax, **SCSS** is the new version. 
 > 
 > The terms 'Sass' and 'SCSS' will be used interchangeably throughout this tutorial to refer to 'SCSS'. [More on this Stackoverflow post](https://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass)
+>
+> Updated **17/5/2020**
+![sass logo](./sass-logo.svg)
 
-![sass logo](http://davidleger95.github.io/whitespace/assets/img/post/sass-math.svg)
 
-## Why Bother?
-- Your stylesheet for your project is larger and harder to organise as it gets larger
+## Why Learn Sass?
+- Your want to be able to manage and organise stylesheets for your projects as they get larger
 - You are getting tired of finding and replacing repeated css values, such as colours
-- You like DRY code
-- You know a few programming features (e.g. a constructor function, array, loop, conditional statement), and feel you could apply them to writing css in a more concise way
-- You like to concept of splitting stuff up into partials (such as in handlebars.js)
-- Lots of things depend on SCSS, as opposed to CSS to work. For example, [Material UI](https://codelabs.developers.google.com/codelabs/mdc-101-web)
+- You like DRYer code, and techniques that allow you to write it
+- You know a few programming features (e.g. arrays, loops, conditional statements), and feel you could apply them to writing css in a more efficient way
+- You want to be able to use ui libraries such as [Material UI](https://codelabs.developers.google.com/codelabs/mdc-101-web), which use SCSS to work
+- You want to prime yourself to use technologies such as [React Styled Components](https://styled-components.com/), which borrow concepts and syntax used in SCSS
 
 ### Caveat(s)
-- This workshop comes from the [mr-bagglesworth](https://github.com/mr-bagglesworth), who is almost certainly isn't using SCSS to it's full potential.
-- Therefore, you should see this tutorial as an overview of some of the **basics** of SCSS to get you started _and please, don't blame the author if things go wrong_.
+- This workshop comes from the [Martin Bagshaw](https://github.com/martinbagshaw), who probably wasn't using SCSS to it's full potential at the time, and since has become a React developer, more or less.
+- This tutorial therefore serves as an overview of some of the **basics** of SCSS to get you started _and please, don't blame the author if things go wrong_.
 - This contains no solutions files, just a few tips and code examples to help you along the way.
 
 ![rooting for you](https://media1.tenor.com/images/8a322e94bdb253a5fb42d010480d0163/tenor.gif?itemid=5104276)
@@ -26,9 +28,11 @@
 # The Workshop
 For this workshop, we will be taking a plain css file, and **refactoring it to be compiled with scss**.
 
-Obviously this isn't how you will go about using sass in an actual project, it is more just to **demonstrate how and why it is useful**.
-
 With each step, don't go too crazy, **just sample the feature**. Some are more useful than others.
+
+```diff
++ Tasks can be found highlighted in green text
+```
 
 **Before we proceed you should bear in mind the following points:**
 > Sass is a css **preprocessor**. This means that styling is still controlled by a css file, which sass **compiles** as you edit your scss files. You still link your css file in your html as you always have done.
@@ -56,7 +60,9 @@ With each step, don't go too crazy, **just sample the feature**. Some are more u
 
 ## Part 1
 **1. Clone the project**
+
 **2. [Install Sass](https://sass-lang.com/install)**. I personally run a standalone version of sass that I installed a long time ago. There is now a node version, which also may be of interest.
+
 **3. Split up the css.** Looking at the starting css, decide which parts might logically split off into separate files. For example:
 - reset
 - typography
@@ -65,6 +71,7 @@ With each step, don't go too crazy, **just sample the feature**. Some are more u
 - etc...
 
 **4. <span id="partials">Partials and Imports:</span>**
+
 **a)** Copy and paste the different parts of the css into new **partial** files. These are declared by starting the filename with an underscore, e.g. **_forms.scss**.
 
 **A file structure might be:**
@@ -90,6 +97,9 @@ scss/
 @import "./base.scss";
 @import "./nav.scss";
 ```
+
+> NOTE: Use of the `@import` rule has, since the writing of this tutorial, been discouraged by the maintainers of Sass, as it imports everything **globally**.
+> The [`@use`](https://sass-lang.com/documentation/at-rules/use) rule is now favoured over `@import`
 
 
 **5. <span id="watch">Watch Command:</span>**
@@ -119,9 +129,15 @@ line
 comment.
 *\
 ```
-<span style="color:red">**Your Task**:</span> Write some comments.
+
+```diff
++ Your Task: Write some comments
+```
 
 **2. <span id="nesting">Nesting:</span>**
+
+> [Nesting: documentation](https://sass-lang.com/documentation/style-rules#nesting)
+
 In scss, you can nest child elements within parent elements. For example:
 **before:**
 ```css
@@ -153,16 +169,21 @@ ul {
     }
 }
 ```
-<span style="color:red">**Your Task**:</span> Nest some sass.
 
+```diff
++ Your Task: Nest some Sass
+```
 
-**3. <span id="ampersand">Using the Ampersand:</span>**
+**3. <span id="ampersand">Using the Ampersand: (&)</span>**
+
+> Also known as the parent selector
+> [Parent selector: documentation](https://sass-lang.com/documentation/style-rules/parent-selector)
 
 **a) <span id="ampersand-same">In referencing variations of the same element or similarly named classes</span>**
 The Ampersand can be used to chain css selectors together, such as:
-- multiple classes on one element
-- psuedo classes
-- classes that begin the same
+- [multiple classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors) on one element
+- [psuedo classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- classes that begin with the same text (a common pattern in the **BEM**, or Block Element Modifier style)
 
 **For example this:**
 ```css
@@ -218,8 +239,10 @@ The Ampersand can be used to chain css selectors together, such as:
 }
 
 ```
-<span style="color:red">**Your Task**:</span> Use the ampersand to chain selectors together.
 
+```diff
++Your Task: Use the ampersand to chain selectors together
+```
 
 **b) <span id="ampersand-parent">In referencing the parent element</span>**
 You can use the ampersand **after** the selector to style an element based on it's context. **For example this**:
@@ -236,7 +259,10 @@ You can use the ampersand **after** the selector to style an element based on it
     color: skyblue;
 }
 ```
-<span style="color:red">**Your Task**:</span> Use the ampersand to style an element based on it's context / parent selector.
+
+```diff
+**Your Task**: Use the ampersand to style an element based on it's context / parent selector
+```
 
 ![go on](https://media3.giphy.com/media/W8Nte2s2kxxLy/giphy.gif?cid=3640f6095c3d23cc436839745574db95)
 > Phew! Time for another tea break.
@@ -244,7 +270,10 @@ You can use the ampersand **after** the selector to style an element based on it
 ## Part 3
 
 **1. <span id="variables">Variables:</span>**
-Sass variables can make it easier to keep track of repeated css values, such as colours, fonts, gradients, icons, and shadows. A common way to organise variables is to group them together in a _partial file, then import the variables partial at the top of your file.
+
+> [Variables: documentation](https://sass-lang.com/documentation/variables)
+
+Sass variables can make it easier to keep track of repeated css values, such as colours, fonts, gradients, icons, and shadows. A common way to organise variables is to group them together in a `_partial file`, then import the variables partial at the top of your file.
 
 **You can declare and use sass variables like so:**
 ```scss
@@ -258,12 +287,19 @@ h1 {
 }
 
 ```
-<span style="color:red">**Your Task**:</span> Make a new partial with some useful variables, and apply them to the rest of your scss partials.
+
+```diff
++ Your Task: Make a new partial with some useful variables, and apply them to the rest of your scss partials
+```
 
 > More useful things you can do with colour variables [can be found here](https://robots.thoughtbot.com/controlling-color-with-sass-color-functions#adding-alpha-transparency)
 
 
 **2. <span id="extends">Extends and Placeholders:</span>**
+
+> [Placeholders: documentation](https://sass-lang.com/documentation/style-rules/placeholder-selectors)
+> [`@extend`: documentation](https://sass-lang.com/documentation/at-rules/extend)
+
 An **extend** extends the styles (css property: value pairs) of an element like so:
 ```scss
 .heading {
@@ -309,16 +345,22 @@ h2 {
     line-height: 1.5;
 }
 ```
-<span style="color:red">**Your Task**:</span> Give that a whirl. Obvs.
 
-**3. <span id="extends">Mixins</span>**
-Now we are talking. This is where sass begins to get sassy. Oh yeah. Imagine you have:
+```diff
++Your Task: Try out `@extend` combined with placeholders
+```
+
+**3. <span id="mixins">Mixins</span>**
+
+> [Mixins: documentation](https://sass-lang.com/documentation/at-rules/mixin)
+
+Imagine you have:
 - **Multiple styles of heading:** different font sizes, weights, colours and line heights.
-- **Three styles of button:** One which includes an icon, one which includes a funky hover transition, and one which is pretty plain.
+- **Three styles of button:** One which includes an icon, one which includes an unusual hover transition, and one which is pretty plain.
 
 **Mixins** are ideal for this situation. They are like a cookie-cutter, or constructor function for your css, taking in values (perhaps in the form of variables), and outputting css.
 
-There are endless blog posts moaning about extends and placeholders (which do have their place), but mixins tend to have the edge most of the time.
+Though extends and placeholders are useful, mixins do tend to have the edge over them most of the time.
 
 **SCSS Mixin Example:**
 ```scss
@@ -354,15 +396,21 @@ h1 {
     }
 }
 ```
-<span style="color:red">**Your Task**:</span> Take a wild guess...
+
+```diff
++Your Task: Write an `@mixin`, and include it in mulitple places with `@include`
+```
 
 ![bertea](https://media1.giphy.com/media/LJRf8PxI30qWs/giphy.gif?cid=3640f6095c3d385876635975328bd7ec)
 > Time for tea, Bertie!
 
 ## Part 4
 **1. <span id="interpolation">Interpolation:</span>**
-Interpo-whatnow???
-Making selectors from things you enter into mixins and whatnot. Similar to the template literal / backtick syntax in vanilla JavaScript.
+
+> [Interpolation: documentation](https://sass-lang.com/documentation/interpolation)
+
+Interpolation is simply string concatenation. In this case, we are making css selectors from arguments you enter into mixins.
+This is very similar to the template literal / backtick syntax in es6+ JavaScript.
 
 **For example, in a button mixin:**
 ```scss
@@ -417,7 +465,11 @@ $yellow-hover: #b98b00;
 ```
 
 **2. <span id="loops">For loops:</span>**
-So you like mixins, but think they are a bit OTT for the task at hand. Say you have a dashboard and have a load of labels, each with different background colours. With the mixin, you would end up doing an **@include** for each version of the label. Not very DRY. :umbrella: 
+
+> [`@for`: documentation](https://sass-lang.com/documentation/at-rules/control/for)
+
+So you like mixins, but think they are overkill for the task at hand.
+Say you have a dashboard and have a load of labels, each with different background colours. With the mixin, you would end up doing an **@include** for each version of the label. Not very DRY. :umbrella: 
 
 **Enter the for loop:**
 
@@ -438,7 +490,7 @@ $colour_codes : $red, $yellow, $blue, $green;
     }
 }
 ```
-> Note: the above uses an array-like thing called a [Sass list](https://hugogiraudel.com/2013/07/15/understanding-sass-lists/)
+> Note: the above uses an array-like structure called a [Sass list](https://hugogiraudel.com/2013/07/15/understanding-sass-lists/)
 
 **This will output the following css:**
 
@@ -456,14 +508,13 @@ $colour_codes : $red, $yellow, $blue, $green;
 ...etc
 ```
 
-
 ---
 
 # Well done! :trophy: 
 
 
 ![I got sass](https://media.giphy.com/media/FPl5jDN6WaY36/giphy.gif)
-> You got the sass
+> You got the Sass
 
 ## More Resources
 
